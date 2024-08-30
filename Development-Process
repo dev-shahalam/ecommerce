@@ -1,0 +1,57 @@
+Apple-Shop
+---------------
+Backend Development ---->
+
+1. Create Migration File For Database
+   pa make:migration create_users
+   pa make:migration create_customer_profiles
+   pa make:migration create_categories
+   pa make:migration create_brands
+   pa make:migration create_products
+   pa make:migration create_product_reviews
+   pa make:migration create_product_details
+   pa make:migration create_product_sliders
+   pa make:migration create_product_wishes
+   pa make:migration create_product_carts
+   pa make:migration create_sslcommerz_accounts
+   pa make:migration create_invoices
+   pa make:migration create_invoice_products
+   pa make:migration create_policies
+
+user php artisan make:migration table_name --m
+
+2. Create Model File For Database and add Fillable Attribute
+   pa make:Model User
+   pa make:Model CustomerProfile
+   pa make:Model Category
+   pa make:Model Brand
+   pa make:Model Product
+   pa make:Model ProductReview
+   pa make:Model ProductDetail
+   pa make:Model ProductSlider
+   pa make:Model ProductWish
+   pa make:Model ProductCart
+   pa make:Model SslcommerzAccount
+   pa make:Model Invoice
+   pa make:Model InvoiceProduct
+   pa make:Model Policy
+
+
+3. Create Controller File
+    pa make:controller UserController
+    pa make:controller ProfileController
+    pa make:controller BrandController
+    pa make:controller CategoryController
+    pa make:controller ProductController
+    pa make:controller InvoiceController
+    pa make:controller PolicyController
+
+4. Build Logic inside Controller for data view
+    Brand
+    Category
+    product
+    Customer_Profile
+    Invoice
+    Product Invoice
+    Payment
+
