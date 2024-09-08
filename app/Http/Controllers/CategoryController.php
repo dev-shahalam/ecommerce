@@ -13,4 +13,9 @@ class CategoryController extends Controller
         $data=Category::all();
         return ResponseHelper::out('success',$data,200);
     }
+
+    public function byCategory(){
+        return view('pag    `es.product-by-category');
+    }
+
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
@@ -19,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Front End View
+Route::get('home',[HomeController::class,'homePage']);
+Route::get('byCategory',[CategoryController::class,'byCategory']);
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,10 +37,10 @@ Route::get('BrandList', [BrandController::class, 'BrandList']);
 
 // Category
 Route::get('CategoryList', [CategoryController::class, 'CategoryList']);
+Route::get('/ListProductByCategory/{id}', [ProductController::class, 'ListProductByCategory']);
 
 // Product
 Route::get('ListProductByBrand/{id}', [ProductController::class, 'ListProductByBrand']);
-Route::get('ListProductByCategory/{id}', [ProductController::class, 'ListProductByCategory']);
 Route::get('ListProductByRemark/{remark}', [ProductController::class, 'ListProductByRemark']);
 Route::get('ProductDetailsById/{id}', [ProductController::class, 'ProductDetailsById']);
 
@@ -43,9 +52,10 @@ Route::get('PolicyListByType/{type}', [PolicyController::class, 'PolicyListByTyp
 
 
 //User Authentication
-Route::post('registration', [UserController::class, 'registration']);
-Route::post('verifyOtp', [UserController::class, 'verifyOtp']);
-Route::post('logout', [UserController::class, 'logout']);
+Route::get('registration/{email}', [UserController::class, 'registration']);
+Route::get('verifyOtp/{email}/{otp}', [UserController::class, 'verifyOtp'])->name('login');
+Route::get('logout', [UserController::class, 'logout']);
+
 Route::post('createProfile', [UserController::class, 'createProfile'])
     ->middleware(AuthenticUser::class);
 Route::post('deleteProfile', [UserController::class, 'deleteProfile'])

@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     public function registration(Request $request){
         try {
-        $userEmail=$request->input('email');
+        $userEmail=$request->email;
         $otp=rand(100000,999999);
         $details=['code'=>$otp];
         Mail::to($userEmail)->send(new OTPMail($details));
@@ -29,8 +29,8 @@ class UserController extends Controller
     }
     public function verifyOtp(Request $request){
 
-        $userEmail=$request->input('email');
-        $userOtp=$request->input('otp');
+        $userEmail=$request->email;
+        $userOtp=$request->otp;
         $user=User::where('email',$userEmail)->where('otp',$userOtp)->first();
         if($user){
             User::where('email',$userEmail)->update(['otp'=>0]);
@@ -42,7 +42,7 @@ class UserController extends Controller
         }
     }
     public function logout(){
-        return redirect('/')->cookie('token',null,-1);
+        return cookie('token',null,-1);
     }
 
 

@@ -1,4 +1,13 @@
 Apple-Shop
+Require for complete E-Commerce Solution
+        A. Project : User Management
+        B. Project : Content Management
+        C. Project : Inventory Management
+        D. Project : Accounts Management
+        E. Project : Supply Chain Management
+
+
+
 ---------------
 Backend Development ---->
 
@@ -47,11 +56,12 @@ user php artisan make:migration table_name --m
     pa make:controller PolicyController
 
 4. Build Logic inside Controller for data view
-    Brand
-    Category
-    product
-    Customer_Profile
-    Invoice
-    Product Invoice
-    Payment
+    Brand Controller
+    Category Controller
+    product Controller
+    Customer_Profile Controller
+    Invoice Controller
+    Product Invoice Controller
+    Payment Controller
 
+5.
