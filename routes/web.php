@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthenticUser;
 use Illuminate\Support\Facades\Route;
@@ -21,14 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Front End View
-Route::get('home',[HomeController::class,'homePage']);
-Route::get('byCategory',[CategoryController::class,'byCategory']);
-
-
-
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -56,9 +49,12 @@ Route::get('registration/{email}', [UserController::class, 'registration']);
 Route::get('verifyOtp/{email}/{otp}', [UserController::class, 'verifyOtp'])->name('login');
 Route::get('logout', [UserController::class, 'logout']);
 
-Route::post('createProfile', [UserController::class, 'createProfile'])
+// Profile
+Route::get('ReadProfile', [ProfileController::class, 'ReadProfile'])
     ->middleware(AuthenticUser::class);
-Route::post('deleteProfile', [UserController::class, 'deleteProfile'])
+Route::post('createProfile', [ProfileController::class, 'createProfile'])
+    ->middleware(AuthenticUser::class);
+Route::post('deleteProfile', [ProfileController::class, 'deleteProfile'])
     ->middleware(AuthenticUser::class);
 
 
